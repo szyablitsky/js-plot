@@ -19,7 +19,9 @@
     "wolfram-alpha-api": "https://products.wolframalpha.com/api/libraries/javascript/wolfram-alpha-api-1.0.0-rc.1.tgz"
   },
   "eslintConfig": {
-    "extends": ["node"]
+    "extends": [
+      "node"
+    ]
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,7 @@
     "react"
   ],
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
