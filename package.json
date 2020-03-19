@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start": "node server",
+    "live": "nodemon ./server/index.js",
     "build": "cd react-ui/ && npm install && npm run build"
   },
   "cacheDirectories": [
@@ -14,7 +15,11 @@
     "react-ui/node_modules"
   ],
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "wolfram-alpha-api": "https://products.wolframalpha.com/api/libraries/javascript/wolfram-alpha-api-1.0.0-rc.1.tgz"
+  },
+  "eslintConfig": {
+    "extends": ["node"]
   },
   "repository": {
     "type": "git",
