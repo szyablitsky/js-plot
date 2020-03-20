@@ -6,10 +6,13 @@ import { generateId } from 'lib/tools/ids'
 
 import css from './components.module.sass'
 
-export const Input = ({ inputClassName, label, value, onChange }) => {
+export const Input = ({ inputClassName, name, label, value, onChange }) => {
   const [id] = useState(generateId())
 
-  const handleChange = (event) => onChange(event.target.value)
+  const handleChange = (event) => {
+    const { value } = event.target
+    return name ? onChange(name, value) : onChange(value)
+  }
 
   const inputClass = classNames(css.input, inputClassName)
 
@@ -23,6 +26,7 @@ export const Input = ({ inputClassName, label, value, onChange }) => {
 
 Input.propTypes = {
   inputClassName: PropTypes.string,
+  name: PropTypes.string,
   label: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

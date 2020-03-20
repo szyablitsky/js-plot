@@ -5,10 +5,13 @@ import { generateIds } from 'lib/tools/ids'
 
 import css from './components.module.sass'
 
-export const Radio = ({ label, options, value, onChange }) => {
+export const Radio = ({ name, label, options, value, onChange }) => {
   const [ids] = useState(generateIds(options.length))
 
-  const handleChange = (event) => onChange(event.target.value)
+  const handleChange = (event) => {
+    const { value } = event.target
+    return name ? onChange(name, value) : onChange(value)
+  }
 
   return (
     <React.Fragment>
@@ -28,6 +31,7 @@ export const Radio = ({ label, options, value, onChange }) => {
 }
 
 Radio.propTypes = {
+  name: PropTypes.string,
   label: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
