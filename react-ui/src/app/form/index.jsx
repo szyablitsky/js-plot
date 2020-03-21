@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import * as engines from 'lib/constants/engines'
+import Syntax from './syntax'
 import { Button, Input, Radio } from 'lib/components'
 import { change } from 'lib/store/form'
 import { plot } from 'lib/actions/plot'
@@ -20,10 +21,7 @@ export const Form = ({ engine, expression, min, max, pending, change, plot }) =>
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>
-        You can use addition, substraction, multiplicatin, division,
-        unary minus and parentheses in expression
-      </p>
+      <Syntax/>
       <p><Radio name='engine' label='Engine' options={options} value={engine} onChange={change}/></p>
       <p><Input name='expression' label='Expression' value={expression} onChange={change}/></p>
       <p><Input name='min' label='Min X' value={min} onChange={change}/></p>

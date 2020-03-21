@@ -1,16 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-export const Internal = () => {
-  return (
-    <div>
-      Here will be a graph
-    </div>
-  )
-}
+export const Internal = ({ tokens }) =>
+  <p>
+    Tokens:
+    <code>{JSON.stringify(tokens)}</code>
+  </p>
 
 Internal.propTypes = {
-
+  tokens: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
-export default Internal
+
+const mapStateToProps = (state) => ({
+  tokens: state.result.tokens,
+})
+
+export default connect(mapStateToProps, {})(Internal)

@@ -1,0 +1,7 @@
+export const LITERAL = 'literal'
+export const VARIABLE = 'variable'
+export const OPERATOR = 'operator'
+export const FUNCTION = 'function'
+export const LPAREN = 'lparen'
+export const RPAREN = 'rparen'
+export const SEPARATOR = 'separator'
