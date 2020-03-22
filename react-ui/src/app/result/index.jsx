@@ -34,8 +34,8 @@ export const Result = ({ engine, expression, min, max, error }) => {
 Result.propTypes = {
   engine: PropTypes.string,
   expression: PropTypes.string.isRequired,
-  min: PropTypes.string.isRequired,
-  max: PropTypes.string.isRequired,
+  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   error: PropTypes.string,
 }
 
