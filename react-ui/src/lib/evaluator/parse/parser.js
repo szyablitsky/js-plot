@@ -109,18 +109,35 @@ export default function () {
     return parsePrimary()
   }
 
+  // Exponential ::= Unary |
+  //                 Exponential '^' Unary
+  function parseExponential() {
+    let expression = parseUnary()
+    let token = tokenizer.peek()
+    while (matchOp(token, '^')) {
+      token = tokenizer.next()
+      expression = createNode(nodes.BINARY, {
+        operator: token.value,
+        left: expression,
+        right: parseUnary(),
+      })
+      token = tokenizer.peek()
+    }
+    return expression
+  }
+
   // Multiplicative ::= Unary |
   //                    Multiplicative '*' Unary |
   //                    Multiplicative '/' Unary
   function parseMultiplicative() {
-    let expression = parseUnary()
+    let expression = parseExponential()
     let token = tokenizer.peek()
     while (matchOp(token, '*') || matchOp(token, '/')) {
       token = tokenizer.next()
       expression = createNode(nodes.BINARY, {
         operator: token.value,
         left: expression,
-        right: parseUnary(),
+        right: parseExponential(),
       })
       token = tokenizer.peek()
     }
