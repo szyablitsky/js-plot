@@ -7,7 +7,7 @@ const SUBMIT_END = `${PREFIX}END`
 
 export const initialState = {
   engine: engines.INTERNAL,
-  expression: '2.75 * (-x^2 + 1) / sqrt(.5) - 1',
+  expression: '2.75 * (-2 * x^3 + 1) / sqrt(x / 2 + .75) - 1',
   min: '-1',
   max: '1',
   pending: false,
