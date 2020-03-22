@@ -1,6 +1,8 @@
 import { WIDTH, HEIGHT } from 'lib/constants/plot'
 
 export const plot = (ctx, min, max, values) => {
+  ctx.clearRect(0, 0, 1000, 1000)
+
   const xMin = min
   const xMax = max
   const yMin = Math.min(...values)
