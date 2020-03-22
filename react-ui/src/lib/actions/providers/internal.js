@@ -16,7 +16,6 @@ export const internal = () => (dispatch, getState) => {
   } else {
     try {
       const ast = parse(expression)
-      console.log(ast)
       const values = []
       const delta = (max - min) / WIDTH
       for (let i = 0; i <= WIDTH; i++) {
